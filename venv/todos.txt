@@ -1,2 +1,3 @@
-prepare
-Write
+add a new player
+update the os
+Buy a camera
