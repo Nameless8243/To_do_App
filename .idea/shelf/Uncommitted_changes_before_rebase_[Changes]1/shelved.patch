@@ -1,0 +1,216 @@
+Index: venv/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># 15 Day 14 app 1 V5\r\n\r\nfrom functions import *\r\n\r\nwhile True:\r\n    user_action = input(\"Type add, show, edit, complete or exit: \")\r\n    user_action = user_action.strip()\r\n\r\n    if user_action.startswith(\"add\"):\r\n        todo = user_action[4:]\r\n\r\n        todos = get_todos()\r\n\r\n        todos.append(todo + \"\\n\")\r\n\r\n        write_todos(todos)\r\n\r\n    elif user_action.startswith(\"show\"):\r\n        todos = get_todos()\r\n\r\n        for index, item in enumerate(todos):\r\n            item = item.strip(\"\\n\")\r\n            row = f\"{index + 1}-{item}\"\r\n            print(row)\r\n    elif user_action.startswith(\"edit\"):\r\n        try:\r\n            number = int(user_action[5:])\r\n            print(number)\r\n\r\n            number = number - 1\r\n\r\n            todos = get_todos()\r\n\r\n            new_todo = input(\"Enter new todo: \")\r\n            todos[number] = new_todo + \"\\n\"\r\n\r\n            write_todos(todos)\r\n\r\n        except ValueError:\r\n            print(\"Your command is not valid\")\r\n            continue\r\n\r\n    elif user_action.startswith(\"complete\"):\r\n        try:\r\n            number = int(user_action[9:])\r\n\r\n            todos = get_todos()\r\n            index = number - 1\r\n            todo_to_remove = todos[index].strip(\"\\n\")\r\n            todos.pop(index)\r\n\r\n            write_todos(todos)\r\n\r\n            message = f\"Todo {todo_to_remove} was removed from the list\"\r\n            print(message)\r\n        except IndexError:\r\n            print(\"There is no item with that number\")\r\n            continue\r\n\r\n    elif user_action.startswith(\"exit\"):\r\n        break\r\n\r\n    else:\r\n        print(\"Command is not valid\")\r\n\r\nprint(\"Bye!\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/venv/main.py b/venv/main.py
+--- a/venv/main.py	(revision ab1d3298fb35c12bebe884d8761c49f630ea83e9)
++++ b/venv/main.py	(date 1705663636804)
+@@ -1,7 +1,10 @@
+-# 15 Day 14 app 1 V5
++# 16 Day 15 app 1 V3
+ 
+ from functions import *
++import time
+ 
++CurrentTime = time.strftime("%Y.%m.%d %H:%M:%S")
++print("It is", CurrentTime)
+ while True:
+     user_action = input("Type add, show, edit, complete or exit: ")
+     user_action = user_action.strip()
+Index: .idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/inspectionProfiles/profiles_settings.xml	
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: bonus/parsers14.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bonus/parsers14.py b/bonus/parsers14.py
+new file mode 100644
+--- /dev/null	
++++ b/bonus/parsers14.py	
+@@ -0,0 +1,5 @@
++def parse(feet_inches):
++    parts = feet_inches.split(" ")
++    feet = float(parts[0])
++    inches = float(parts[1])
++    return {"feet": feet, "inches": inches}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	
++++ b/.idea/.gitignore	
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: bonus/converters14.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bonus/converters14.py b/bonus/converters14.py
+new file mode 100644
+--- /dev/null	
++++ b/bonus/converters14.py	
+@@ -0,0 +1,3 @@
++def convert(feet, inches):
++    meters = feet * 0.3048 + inches * 0.0254
++    return meters
+Index: venv/functions.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def get_todos(filepath=\"todos.txt\"):\r\n    \"\"\"Read a text file and return the list of\r\n    to do items.\r\n    \"\"\"\r\n    with open(filepath, \"r\") as file_local:\r\n        todos_local = file_local.readlines()\r\n    return todos_local\r\n\r\n\r\ndef write_todos(todos_arg, filepath=\"todos.txt\"):\r\n    \"\"\"Write a to-do items list in the text file.\"\"\"\r\n    with open(filepath, \"w\") as file:\r\n        file.writelines(todos_arg)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    print(\"Hello from functions\")\r\n    print(get_todos())\r\n\r\n\r\n# print(\"Hello from functions\")\r\n# print(get_todos())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/venv/functions.py b/venv/functions.py
+--- a/venv/functions.py	(revision ab1d3298fb35c12bebe884d8761c49f630ea83e9)
++++ b/venv/functions.py	(date 1705663636804)
+@@ -1,4 +1,5 @@
+-def get_todos(filepath="todos.txt"):
++FILEPATH = "todos.txt"
++def get_todos(filepath=FILEPATH):
+     """Read a text file and return the list of
+     to do items.
+     """
+@@ -7,7 +8,7 @@
+     return todos_local
+ 
+ 
+-def write_todos(todos_arg, filepath="todos.txt"):
++def write_todos(todos_arg, filepath=FILEPATH):
+     """Write a to-do items list in the text file."""
+     with open(filepath, "w") as file:
+         file.writelines(todos_arg)
+Index: .idea/To_do_App.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/To_do_App.iml b/.idea/To_do_App.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/To_do_App.iml	
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules.xml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/To_do_App.iml" filepath="$PROJECT_DIR$/.idea/To_do_App.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/misc.xml	
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: bonus/bonus14.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>feet_inches = input(\"Enter feet and inches: \")\r\n\r\n\r\ndef parse(feet_inches):\r\n    parts = feet_inches.split(\" \")\r\n    feet = float(parts[0])\r\n    inches = float(parts[1])\r\n    return {\"feet\": feet, \"inches\": inches}\r\n\r\n\r\ndef convert(feet, inches):\r\n    meters = feet * 0.3048 + inches * 0.0254\r\n    return meters\r\n\r\n\r\nparsed = parse(feet_inches)\r\n\r\nresult = convert(parsed[\"feet\"], parsed[\"inches\"])\r\n\r\nprint(f\"{parsed['feet']} feet and {parsed['inches']} is equal to {result}\")\r\n\r\nif result < 1:\r\n    print(\"Kid is too small.\")\r\nelse:\r\n    print(\"Kid can use the slide.\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bonus/bonus14.py b/bonus/bonus14.py
+--- a/bonus/bonus14.py	(revision ab1d3298fb35c12bebe884d8761c49f630ea83e9)
++++ b/bonus/bonus14.py	(date 1705663636804)
+@@ -1,18 +1,8 @@
++from converters14 import convert
++from parsers14 import parse
++
+ feet_inches = input("Enter feet and inches: ")
+ 
+-
+-def parse(feet_inches):
+-    parts = feet_inches.split(" ")
+-    feet = float(parts[0])
+-    inches = float(parts[1])
+-    return {"feet": feet, "inches": inches}
+-
+-
+-def convert(feet, inches):
+-    meters = feet * 0.3048 + inches * 0.0254
+-    return meters
+-
+-
+ parsed = parse(feet_inches)
+ 
+ result = convert(parsed["feet"], parsed["inches"])
+diff --git a/bonus/__init__.py b/bonus/__init__.py
+new file mode 100644
