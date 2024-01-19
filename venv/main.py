@@ -1,7 +1,10 @@
-# 15 Day 14 app 1 V5
+# 16 Day 15 app 1 V3
 
 from functions import *
+import time
 
+CurrentTime = time.strftime("%Y.%m.%d %H:%M:%S")
+print("It is", CurrentTime)
 while True:
     user_action = input("Type add, show, edit, complete or exit: ")
     user_action = user_action.strip()
