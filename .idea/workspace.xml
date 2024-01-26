@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fd70966-eb89-49b9-9ee1-aec667d2945f" name="Changes" comment="Create a static web interface">
-      <change afterPath="$PROJECT_DIR$/build/gui/Analysis-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/EXE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PKG-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PYZ-00.pyz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PYZ-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-01.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-02.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/base_library.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/gui.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/warn-gui.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/xref-gui.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/gui.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/todos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7fd70966-eb89-49b9-9ee1-aec667d2945f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/todos.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/web.py" afterDir="false" />
@@ -222,7 +207,7 @@
       <workItem from="1706091524244" duration="6759000" />
       <workItem from="1706099272736" duration="3738000" />
       <workItem from="1706271245473" duration="5835000" />
-      <workItem from="1706281234267" duration="80000" />
+      <workItem from="1706281234267" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="20240119">
       <option name="closed" value="true" />
@@ -320,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706278617157</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Create a static web interface">
+      <option name="closed" value="true" />
+      <created>1706281354079</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706281354079</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
